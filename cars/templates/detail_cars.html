@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class ="container-fluid">
+    <div class="row py-3">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{ object.brand }} {{ object.model }}</h5>
+                  <h1>R${{ object.price|floatformat:"2g" }}</h1>
+                  <div class="text-center">
+                      <a href="" class="btn btn-secondary btn-lg">Comprar</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

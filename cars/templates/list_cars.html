@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class ="container-fluid">
+    <div class="row py-3">
+        {% regroup obj_list by brand as brands_list %}
+        {% for brand in brands_list %}
+            <h1 class="text-center p-4"> {{brand.grouper}} </h1>
+            {% for carro in brand.list %}
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ carro.brand }} {{ carro.model }}</h5>
+                    <p class="card-text"><h1>R${{ carro.price|floatformat:"2g" }}</h1></p>
+                    <div class="text-center">
+                        <a href={% url "detail-car" carro.id %} class="btn btn-secondary btn-lg">Comprar</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
